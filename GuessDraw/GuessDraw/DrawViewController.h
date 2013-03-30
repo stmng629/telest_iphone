@@ -2,12 +2,20 @@
 //  DrawViewController.h
 //  GuessDraw
 //
-//  Created by Shen Tianmeng on 2013/03/28.
+//  Created by Shen Tianmeng on 2013/03/30.
 //  Copyright (c) 2013年 Shen Tianmeng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface DrawViewController : UIViewController
+@interface DrawViewController : UIViewController{
+    CGPoint lastPoint;
+    CGFloat red;
+    CGFloat green;
+    CGFloat blue;
+    CGFloat brush;
+    CGFloat opacity;
+    BOOL mouseSwiped;
+}
 
 @end

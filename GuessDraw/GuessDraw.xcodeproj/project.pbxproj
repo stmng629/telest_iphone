@@ -26,13 +26,15 @@
 		5410F7E71703342500F8EED8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5410F7E41703342500F8EED8 /* Accounts.framework */; };
 		5410F7E81703342500F8EED8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5410F7E51703342500F8EED8 /* AdSupport.framework */; };
 		5410F7E91703342500F8EED8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5410F7E61703342500F8EED8 /* Social.framework */; };
-		5410F7EB1703344100F8EED8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5410F7EA1703344100F8EED8 /* FacebookSDK.framework */; };
-		5410F7EE1703344C00F8EED8 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5410F7EC1703344C00F8EED8 /* FacebookSDKResources.bundle */; };
-		5410F7EF1703344C00F8EED8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5410F7ED1703344C00F8EED8 /* FBUserSettingsViewResources.bundle */; };
 		5410F7F317034B8100F8EED8 /* ModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5410F7F117034B8100F8EED8 /* ModeViewController.m */; };
 		5410F7F417034B8100F8EED8 /* ModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5410F7F217034B8100F8EED8 /* ModeViewController.xib */; };
-		5410F7F817034BE400F8EED8 /* DrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5410F7F617034BE400F8EED8 /* DrawViewController.m */; };
-		5410F7F917034BE400F8EED8 /* DrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5410F7F717034BE400F8EED8 /* DrawViewController.xib */; };
+		5410F7FB17055E5200F8EED8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5410F7FA17055E5200F8EED8 /* FacebookSDK.framework */; };
+		5410F7FE17055E6000F8EED8 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5410F7FC17055E6000F8EED8 /* FacebookSDKResources.bundle */; };
+		5410F7FF17055E6000F8EED8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5410F7FD17055E6000F8EED8 /* FBUserSettingsViewResources.bundle */; };
+		5410F8031706C95800F8EED8 /* GuessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5410F8011706C95700F8EED8 /* GuessViewController.m */; };
+		5410F8041706C95800F8EED8 /* GuessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5410F8021706C95800F8EED8 /* GuessViewController.xib */; };
+		5410F8081706EF8300F8EED8 /* DrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5410F8061706EF8200F8EED8 /* DrawViewController.m */; };
+		5410F8091706EF8300F8EED8 /* DrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5410F8071706EF8300F8EED8 /* DrawViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,15 +73,18 @@
 		5410F7E41703342500F8EED8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		5410F7E51703342500F8EED8 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		5410F7E61703342500F8EED8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		5410F7EA1703344100F8EED8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		5410F7EC1703344C00F8EED8 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
-		5410F7ED1703344C00F8EED8 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
 		5410F7F017034B8100F8EED8 /* ModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeViewController.h; sourceTree = "<group>"; };
 		5410F7F117034B8100F8EED8 /* ModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeViewController.m; sourceTree = "<group>"; };
 		5410F7F217034B8100F8EED8 /* ModeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModeViewController.xib; sourceTree = "<group>"; };
-		5410F7F517034BE400F8EED8 /* DrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawViewController.h; sourceTree = "<group>"; };
-		5410F7F617034BE400F8EED8 /* DrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawViewController.m; sourceTree = "<group>"; };
-		5410F7F717034BE400F8EED8 /* DrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawViewController.xib; sourceTree = "<group>"; };
+		5410F7FA17055E5200F8EED8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		5410F7FC17055E6000F8EED8 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		5410F7FD17055E6000F8EED8 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		5410F8001706C95700F8EED8 /* GuessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessViewController.h; sourceTree = "<group>"; };
+		5410F8011706C95700F8EED8 /* GuessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessViewController.m; sourceTree = "<group>"; };
+		5410F8021706C95800F8EED8 /* GuessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuessViewController.xib; sourceTree = "<group>"; };
+		5410F8051706EF8200F8EED8 /* DrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawViewController.h; sourceTree = "<group>"; };
+		5410F8061706EF8200F8EED8 /* DrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawViewController.m; sourceTree = "<group>"; };
+		5410F8071706EF8300F8EED8 /* DrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +98,7 @@
 				5410F7AA170333EE00F8EED8 /* UIKit.framework in Frameworks */,
 				5410F7AC170333EE00F8EED8 /* Foundation.framework in Frameworks */,
 				5410F7AE170333EE00F8EED8 /* CoreGraphics.framework in Frameworks */,
-				5410F7EB1703344100F8EED8 /* FacebookSDK.framework in Frameworks */,
+				5410F7FB17055E5200F8EED8 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,9 +137,9 @@
 		5410F7A8170333EE00F8EED8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5410F7EC1703344C00F8EED8 /* FacebookSDKResources.bundle */,
-				5410F7ED1703344C00F8EED8 /* FBUserSettingsViewResources.bundle */,
-				5410F7EA1703344100F8EED8 /* FacebookSDK.framework */,
+				5410F7FC17055E6000F8EED8 /* FacebookSDKResources.bundle */,
+				5410F7FD17055E6000F8EED8 /* FBUserSettingsViewResources.bundle */,
+				5410F7FA17055E5200F8EED8 /* FacebookSDK.framework */,
 				5410F7E41703342500F8EED8 /* Accounts.framework */,
 				5410F7E51703342500F8EED8 /* AdSupport.framework */,
 				5410F7E61703342500F8EED8 /* Social.framework */,
@@ -158,9 +163,12 @@
 				5410F7F017034B8100F8EED8 /* ModeViewController.h */,
 				5410F7F117034B8100F8EED8 /* ModeViewController.m */,
 				5410F7F217034B8100F8EED8 /* ModeViewController.xib */,
-				5410F7F517034BE400F8EED8 /* DrawViewController.h */,
-				5410F7F617034BE400F8EED8 /* DrawViewController.m */,
-				5410F7F717034BE400F8EED8 /* DrawViewController.xib */,
+				5410F8001706C95700F8EED8 /* GuessViewController.h */,
+				5410F8011706C95700F8EED8 /* GuessViewController.m */,
+				5410F8021706C95800F8EED8 /* GuessViewController.xib */,
+				5410F8051706EF8200F8EED8 /* DrawViewController.h */,
+				5410F8061706EF8200F8EED8 /* DrawViewController.m */,
+				5410F8071706EF8300F8EED8 /* DrawViewController.xib */,
 			);
 			path = GuessDraw;
 			sourceTree = "<group>";
@@ -274,10 +282,11 @@
 				5410F7BE170333EE00F8EED8 /* Default@2x.png in Resources */,
 				5410F7C0170333EE00F8EED8 /* Default-568h@2x.png in Resources */,
 				5410F7C6170333EE00F8EED8 /* ViewController.xib in Resources */,
-				5410F7EE1703344C00F8EED8 /* FacebookSDKResources.bundle in Resources */,
-				5410F7EF1703344C00F8EED8 /* FBUserSettingsViewResources.bundle in Resources */,
 				5410F7F417034B8100F8EED8 /* ModeViewController.xib in Resources */,
-				5410F7F917034BE400F8EED8 /* DrawViewController.xib in Resources */,
+				5410F7FE17055E6000F8EED8 /* FacebookSDKResources.bundle in Resources */,
+				5410F7FF17055E6000F8EED8 /* FBUserSettingsViewResources.bundle in Resources */,
+				5410F8041706C95800F8EED8 /* GuessViewController.xib in Resources */,
+				5410F8091706EF8300F8EED8 /* DrawViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +325,8 @@
 				5410F7BA170333EE00F8EED8 /* AppDelegate.m in Sources */,
 				5410F7C3170333EE00F8EED8 /* ViewController.m in Sources */,
 				5410F7F317034B8100F8EED8 /* ModeViewController.m in Sources */,
-				5410F7F817034BE400F8EED8 /* DrawViewController.m in Sources */,
+				5410F8031706C95800F8EED8 /* GuessViewController.m in Sources */,
+				5410F8081706EF8300F8EED8 /* DrawViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +438,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GuessDraw/GuessDraw-Prefix.pch";
@@ -447,6 +458,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GuessDraw/GuessDraw-Prefix.pch";
@@ -513,6 +525,7 @@
 				5410F7E0170333EF00F8EED8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5410F7E1170333EF00F8EED8 /* Build configuration list for PBXNativeTarget "GuessDrawTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +534,7 @@
 				5410F7E3170333EF00F8EED8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
