@@ -9,6 +9,7 @@
 #import "GuessViewController.h"
 
 @interface GuessViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *nameData;
 
 @end
 
@@ -25,8 +26,15 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidUnload{
+    [self setNameData:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
 }
 
 - (void)didReceiveMemoryWarning

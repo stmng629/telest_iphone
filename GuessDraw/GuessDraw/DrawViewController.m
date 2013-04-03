@@ -11,6 +11,8 @@
 @interface DrawViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIImageView *tempDrawImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 - (IBAction)eraserButtonPressed:(id)sender;
 - (IBAction)reset:(id)sender;
 
@@ -20,6 +22,7 @@
 @implementation DrawViewController
 @synthesize mainImage = _mainImage;
 @synthesize tempDrawImage = _tempDrawImage;
+@synthesize titleLabel = _titleLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,6 +42,7 @@
     // Release any retained subviews of the main view.
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
@@ -52,6 +56,48 @@
     blue = 0.0/255.0;
     brush = 10.0;
     opacity = 1.0;
+    
+    // 送信するリクエストを生成する。
+    NSURL *url = [NSURL URLWithString:@"http://gif-animaker.sakura.ne.jp/guess_draw/api/get_title.php"];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    
+    // リクエストを送信する。
+    // 第３引数のブロックに実行結果が渡される。
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if (error) {
+            // エラー処理を行う。
+            if (error.code == -1003) {
+                NSLog(@"not found hostname. targetURL=%@", url);
+            } else if (-1019) {
+                NSLog(@"auth error. reason=%@", error);
+            } else {
+                NSLog(@"unknown error occurred. reason = %@", error);
+            }
+            
+        } else {
+            int httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
+            if (httpStatusCode == 404) {
+                NSLog(@"404 NOT FOUND ERROR. targetURL=%@", url);
+                // } else if (・・・) {
+                // 他にも処理したいHTTPステータスがあれば書く。
+                
+            } else {
+                NSLog(@"success request!!");
+                NSLog(@"statusCode = %d", ((NSHTTPURLResponse *)response).statusCode);
+                //NSLog(@"responseText = %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                //NSLog(@"responseText = %@", [[NSString alloc] initWithData:data encoding:NSShiftJISStringEncoding]);
+                NSLog(@"responseText = %@", [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]);
+                //self.titleLabel.text = [NSString stringWithFormat:@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+
+                
+                // ここはサブスレッドなので、メインスレッドで何かしたい場合には
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // ここに何か処理を書く。
+                });
+            }
+        }
+    }];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

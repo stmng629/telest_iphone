@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GuessViewController : UIViewController
+@interface GuessViewController : UIViewController{
+    //サーバとのコネクション情報を保持
+//    NSURLConnection *connection;
+    //受信データを入れる
+//    NSMutableData *async_data;
+}
 
 @end
