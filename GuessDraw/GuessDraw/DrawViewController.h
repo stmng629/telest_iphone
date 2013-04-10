@@ -16,6 +16,7 @@
     CGFloat brush;
     CGFloat opacity;
     BOOL mouseSwiped;
+    NSMutableData *receivedData;
 }
 
 @end

@@ -12,9 +12,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIImageView *tempDrawImage;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
 
 - (IBAction)eraserButtonPressed:(id)sender;
 - (IBAction)reset:(id)sender;
+- (IBAction)sendButtonPressed:(id)sender;
+
+
 
 
 @end
@@ -87,8 +91,16 @@
                 NSLog(@"statusCode = %d", ((NSHTTPURLResponse *)response).statusCode);
                 //NSLog(@"responseText = %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                 //NSLog(@"responseText = %@", [[NSString alloc] initWithData:data encoding:NSShiftJISStringEncoding]);
-                NSLog(@"responseText = %@", [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]);
+                //NSLog(@"responseText = %@", [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]);
                 //self.titleLabel.text = [NSString stringWithFormat:@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+                
+                NSString *contents = [[NSString alloc] initWithData:data
+                                                           encoding:NSUTF8StringEncoding];
+                NSData *tmp = [contents dataUsingEncoding:NSUTF8StringEncoding];
+                NSError *error=nil;
+                NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:tmp
+                                                                           options:NSJSONReadingAllowFragments error:&error];
+                self.titleLabel.text = [jsonObject objectForKey:@"title"];
 
                 
                 // ここはサブスレッドなので、メインスレッドで何かしたい場合には
@@ -122,6 +134,75 @@
     
     self.mainImage.image = nil;
     
+}
+
+- (IBAction)sendButtonPressed:(id)sender {
+    NSData* jpegData = [[NSData alloc] initWithData:UIImageJPEGRepresentation( self.mainImage.image, 0.5 )];
+    
+//    NSString *mail = @"test@gmail.com"; // 写真以外の文字列とかもアップロード出来る
+	
+	
+	NSURL *cgiUrl = [NSURL URLWithString:@"http://gif-animaker.sakura.ne.jp/guess_draw/api/insert_pic.php"];
+	NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:cgiUrl];
+	
+	//adding header information:
+	[postRequest setHTTPMethod:@"POST"];
+	
+	NSString *stringBoundary = [NSString stringWithString:@"0xKhTmLbOuNdArY"];
+	NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",stringBoundary];
+	[postRequest addValue:contentType forHTTPHeaderField: @"Content-Type"];
+	
+	
+	//setting up the body:
+	NSMutableData *postBody = [NSMutableData data];
+	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//	[postBody appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"email\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+//	[postBody appendData:[mail dataUsingEncoding:NSUTF8StringEncoding]];
+//	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//	[postBody appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"uploadFile\"; filename=\"test.png\"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+//	[postBody appendData:[[NSString stringWithString:@"Content-Type: application/octet-stream\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:jpegData];
+//	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postRequest setHTTPBody:postBody];
+    
+    NSURLConnection *connection = [NSURLConnection connectionWithRequest:postRequest delegate:self];
+}
+
+// データ受信時に１回だけ呼び出される。
+// 受信データを格納する変数を初期化する。
+- (void) connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response {
+    
+    // receiveDataはフィールド変数
+    receivedData = [[NSMutableData alloc] init];
+}
+
+// データ受信したら何度も呼び出されるメソッド。
+// 受信したデータをreceivedDataに追加する
+- (void) connection:(NSURLConnection *) connection didReceiveData:(NSData *)data {
+    [receivedData appendData:data];
+}
+
+// データ受信が終わったら呼び出されるメソッド。
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    // 今回受信したデータはHTMLデータなので、NSDataをNSStringに変換する。
+    NSString *html
+    = [[NSString alloc] initWithBytes:receivedData.bytes
+                               length:receivedData.length
+                             encoding:NSUTF8StringEncoding];
+    
+    // 受信したデータをUITextViewに表示する。
+    //textView.text = html;
+    NSLog(@"sent? %@", html);
+    
+    // 終わった事をAlertダイアログで表示する。
+    UIAlertView *alertView
+    = [[UIAlertView alloc] initWithTitle:nil
+                                message:@"Finish Loading"
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil];
+    [alertView show];
 }
 
 
